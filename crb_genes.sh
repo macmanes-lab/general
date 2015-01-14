@@ -34,4 +34,8 @@ for i in $(ls *crb); do awk '{print $2}' $i >> list; done
 
 for i in $(ls /home/macmanes/coral/prot_data/*prot); do grep -A1 --max-count=1 -w -f list $i >> $NA.prot; done
 
-rm *psq *pin *phr
+rm *psq *pin *phr *blast list
+
+mafft-linsi --thread $TC --reorder --maxiterate 5000 --amino $NA.prot > $NA.align
+
+raxmlHPC-PTHREADS -f a -m PROTGAMMAAUTO autoprot=bic -T $TC -x 344526 -N 100 -n $NA.tree -s $NA.align -p 67835
