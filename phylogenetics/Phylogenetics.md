@@ -3,6 +3,21 @@ Gen 606 Phylogenetics Exercise
 
 The purpose of this exercise is to familiarize you with the very basics of phylogenetic methods. There are a number of courses that expand upon this both at UNH and beyond. There are also some great tutorials that might be interesting for some: http://treethinkers.org/tutorials/
 
+**SOFTWARE USED**
+
+- MUSCLE
+	
+	- http://www.drive5.com/muscle/manual/ 
+- GBLOCKS
+	
+	- http://molevol.cmima.csic.es/castresana/Gblocks/Gblocks_documentation.html
+- PhyML	
+
+	- http://www.atgc-montpellier.fr/download/papers/phyml_2010.pdf
+	- http://www.atgc-montpellier.fr/phyml/faq.php
+
+---
+
 **Steps for analysis**
 
 - Navigate to http://phylogeny.lirmm.fr/phylo_cgi/phylogeny.cgi
@@ -23,7 +38,7 @@ The purpose of this exercise is to familiarize you with the very basics of phylo
 
 - Click Create workflow
 
-- Paste in your nucleotide sequences, then click submit
+- Paste in your nucleotide sequences, which can be found here: https://github.com/macmanes-lab/general/blob/master/phylogenetics/seqs.fasta then click submit
 
 **Generating Results**
 
@@ -53,17 +68,13 @@ The purpose of this exercise is to familiarize you with the very basics of phylo
 	- What does phylogeny mean?
 	- Red numbers?
 	- Why different branch lengths?
-	- 
+	- Are there cases where the hypothesized relationships don't make sense? Why?
 
 
+---
 
+**Advanced Exercises**
 
-
-
-
-
-https://www.phylo.org/
-
-
-- Check Multiple Alignment, Alignment Curation, Construction of Phylogenetic Tree, Visualization
-	- Within each of these blocks, choose one of the options. Hopefully people will choose different options, which might lead to different results.
+There are several 'advanced' exercises that could be interesting. Many of these include changing the specific parameters or deleting steps (for instance, what happens when you don't run GBLOCKS?). Try these if interested.
+ 
+There is also a more complicated web interface for doing phylogenetics. These analyses are done on https://www.phylo.org/. Here you can do VERY complicated analyses like you might do for a publication. Try this stuff out if you are are interested. 
