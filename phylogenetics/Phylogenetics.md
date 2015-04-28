@@ -25,10 +25,35 @@ The purpose of this exercise is to familiarize you with the very basics of phylo
 
 - Paste in your nucleotide sequences, then click submit
 
+**Generating Results**
 
+- Alignment
 
+	- What do the different colors mean?
+	- Can you infer something about the relationship between the species based on this alignment?
+	- Optional - download the alignment.
+	- when done, scroll to bottom of page and click "Next Step"
+	
 
+- Curation
 
+	- Click option under 'For a more stringent selection' > Submit
+
+	- What did curation do?
+	- Why might this be important? 
+	- when done, scroll to bottom of page and click "Next Step"
+
+- PhyML Tree Building
+	- There are numerous settings for Phylogeny building. For now, lets just leave to the default. 
+	- Click Submit
+	- Once done, click "Next Step"
+
+- Tree Visualization
+	- Submit
+	- What does phylogeny mean?
+	- Red numbers?
+	- Why different branch lengths?
+	- 
 
 
 
