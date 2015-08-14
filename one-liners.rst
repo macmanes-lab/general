@@ -2,7 +2,11 @@
 UNIX WIZARDRY
 ===============
 
-The explicit goal of this tutorial is to provide you with some tricks and tools and to make your unix life happier. 
+The explicit goal of this tutorial is to provide you with some tricks and tools and to make your unix life happier. Also, to possibly introduce you to samtools. 
+
+|
+
+See https://github.com/stephenturner/oneliners for a bunch of examples. 
 
 |
 
@@ -26,7 +30,7 @@ The explicit goal of this tutorial is to provide you with some tricks and tools 
   alias targz='tar -zcf'
   alias utargz='tar -zxf'
 
-**INSTALL TRINITY**
+**INSTALL TRINITY**: note the ``-j4``
 
 ::
 
@@ -83,6 +87,12 @@ The explicit goal of this tutorial is to provide you with some tricks and tools 
   awk '{print $1 "\t" $3}' Trinity.counts.RNAseq.txt | head
   awk '$1 == "c996_g1_i1"' Trinity.counts.RNAseq.txt
 
+**Random Stuff**
+
+::
+
+  cd -
+  tmux/screen
 
 ========================
 SAMTOOLS
