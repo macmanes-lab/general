@@ -77,7 +77,17 @@ The explicit goal of this tutorial is to provide you with some tricks and tools 
   awk '{print $1 "\t" $3}' Trinity.counts.RNAseq.txt | head
   awk '$1 == "c996_g1_i1"' Trinity.counts.RNAseq.txt
 
+**copy/paste**
+::
+  
+  cat | pbcopy 
 
+**E-grep**
+
+::
+  grep -e ^\w+$
+  
+  
 ========================
 SAMTOOLS
 ========================
