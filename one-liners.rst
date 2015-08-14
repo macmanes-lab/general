@@ -68,6 +68,12 @@ The explicit goal of this tutorial is to provide you with some tricks and tools 
   sed 's_|_-_g' Trinity.fasta | grep ^'>' | head
   sed -i 's_|_-_g' Trinity.fasta
   
+**Number fasta def line**
+
+::
+
+  awk '/^>/{print ">" ++i; next}{print}' < Trinity.fasta > Trinity.numbered.fasta
+  
 
 **awk**
 
