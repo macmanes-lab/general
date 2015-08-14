@@ -29,6 +29,11 @@ See https://github.com/stephenturner/oneliners for a bunch of examples.
   alias cp='cp -i' 
   alias targz='tar -zcf'
   alias utargz='tar -zxf'
+  
+  alias tn="tmux new -s"
+  alias ta="tmux attach -t"
+  alias tl="tmux ls"
+  alias tk="tmux kill-session -t"
 
 **INSTALL TRINITY**: note the ``-j4``
 
@@ -93,6 +98,7 @@ See https://github.com/stephenturner/oneliners for a bunch of examples.
 
   cd -
   tmux/screen
+
 
 ========================
 SAMTOOLS
