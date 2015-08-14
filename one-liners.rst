@@ -47,7 +47,7 @@ The explicit goal of this tutorial is to provide you with some tricks and tools 
 
   mkdir /home/ubuntu/data
   cd /home/ubuntu/data
-  curl -LO https://www.dropbox.com/s/5fymuyb1f2l8kfj/ngsfile.tar.gz?
+  curl -LO https://www.dropbox.com/s/5fymuyb1f2l8kfj/ngsfile.tar.gz
   utargz ngsfile.tar.gz
 
 
@@ -63,7 +63,7 @@ The explicit goal of this tutorial is to provide you with some tricks and tools 
 
 ::
 
-  cd ngs2015/
+  cd /home/ubuntu/data/ngs2015
   less Trinity.fasta
   sed 's_|_-_g' Trinity.fasta | grep ^'>' | head
   sed -i 's_|_-_g' Trinity.fasta
@@ -74,7 +74,7 @@ The explicit goal of this tutorial is to provide you with some tricks and tools 
 ::
 
   less Trinity.counts.RNAseq.txt
-  awk '{print $1 "\t" $2}' Trinity.counts.RNAseq.txt | head
+  awk '{print $1 "\t" $3}' Trinity.counts.RNAseq.txt | head
   awk '$1 == "c996_g1_i1"' Trinity.counts.RNAseq.txt
 
 
@@ -99,7 +99,7 @@ Let's learn something about samtools
 
 ::
 
-  cd $HOME/ngs2015/
+  cd $HOME/data/ngs2015
   
   samtools sort ngs.bam -o test.sort.bam -O bam -T temp
   
