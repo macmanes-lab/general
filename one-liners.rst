@@ -77,6 +77,29 @@ The explicit goal of this tutorial is to provide you with some tricks and tools 
   awk '{print $1 "\t" $3}' Trinity.counts.RNAseq.txt | head
   awk '$1 == "c996_g1_i1"' Trinity.counts.RNAseq.txt
 
+**screen**
+
+Process will continue running in a background session, continue to display output even if you break your connection.
+
+::
+
+  screen
+
+Disconnect from screen, Ctrl-A-D (press all keys at the same time).
+
+See how many screens are running:
+
+::
+
+  screen -r
+
+
+Reconnect to a specific screen, copy the name of screen, e.g.
+
+::
+
+  screen -r 11074.pts-25.phoenix2
+
 
 ========================
 SAMTOOLS
@@ -121,3 +144,4 @@ Let's learn something about samtools
 ========================
 TERMINATE YOUR INSTANCE
 ========================
+
