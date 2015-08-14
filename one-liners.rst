@@ -83,6 +83,19 @@ The explicit goal of this tutorial is to provide you with some tricks and tools 
   awk '{print $1 "\t" $3}' Trinity.counts.RNAseq.txt | head
   awk '$1 == "c996_g1_i1"' Trinity.counts.RNAseq.txt
 
+**reusing parts of bash commands**
+
+::
+
+  sh-4.3$ echo "a" "b" "c" "d"                                                 
+  a b c d                                                                      
+  sh-4.3$ echo !:2 !:4                                                         
+  echo "b" "d"                                                                 
+  b d                                                                          
+  sh-4.3$ echo !:$                                                             
+  echo "d"                                                                     
+  d                                                                            
+
 
 ========================
 SAMTOOLS
