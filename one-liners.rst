@@ -11,7 +11,7 @@ The explicit goal of this tutorial is to provide you with some tricks and tools 
 ::
 
   sudo apt-get update && sudo apt-get -y upgrade
-  sudo apt-get install libncurses5-dev build-essential tmux git gcc make g++ python-dev unzip default-jre zlib1g-dev
+  sudo apt-get -y install libncurses5-dev build-essential tmux git gcc make g++ python-dev unzip default-jre zlib1g-dev
 
 **ALIASES**: These are 'shortcuts' for make doing stuff more efficient.
 
