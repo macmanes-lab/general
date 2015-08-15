@@ -129,7 +129,7 @@ Let's learn something about samtools
   
   samtools idxstats test.sort.bam | less
   
-  samtools bam2fq -s se.fq --reference Trinity.fasta test.sort.bam > from.bam.fastq
+  samtools bam2fq -s from.bam.se.fq --reference Trinity.fasta test.sort.bam > from.bam.pe.fastq
   
   samtools depth -a test.sort.bam | grep 'TR1|c0_g1_i1' | less
   samtools depth -a test.sort.bam | awk '$1 == "TR1|c0_g1_i1"' | less
