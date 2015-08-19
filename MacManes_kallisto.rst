@@ -76,9 +76,9 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** We need 
   mkdir -p /mnt/kallisto/results/ && cd /mnt/kallisto
   tmux new -s kallisto
 
-  curl -LO ftp://ftp.ensembl.org/pub/release-75/fasta/drosophila_melanogaster/cdna/Drosophila_melanogaster.BDGP5.75.cdna.abinitio.fa.gz
+  curl -LO ftp://ftp.ensembl.org/pub/release-75/fasta/drosophila_melanogaster/cdna/Drosophila_melanogaster.BDGP5.75.cdna.all.fa.gz
 
-  kallisto index -i dros Drosophila_melanogaster.BDGP5.75.cdna.abinitio.fa.gz
+  kallisto index -i dros Drosophila_melanogaster.BDGP5.75.cdna.all.fa.gz
   
 
   samples[1]=ORE_wt_rep1
