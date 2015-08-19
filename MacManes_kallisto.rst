@@ -150,11 +150,8 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** We need 
   base_dir <- "~/Downloads/sleuth"
   sample_id <- dir(file.path(base_dir,"results"))
   kal_dirs <- sapply(sample_id, function(id) file.path(base_dir, "results", id, "kallisto"))
-  kal_dirs
   s2c <- read.table(file.path(base_dir,"experiment.info"), header = TRUE, stringsAsFactors=FALSE)
   s2c <- dplyr::select(s2c, sample = name, reads, condition, wt)
-  s2c
-  so <- sleuth_prep(kal_dirs, s2c, ~ wt)
   so <- sleuth_fit(so)
   so <- sleuth_test(so, which_beta = 'wtyes')
   
