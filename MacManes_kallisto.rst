@@ -112,6 +112,28 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** We need 
   scp -r -i your.pem ubuntu@ec2-xx-x-xxx-xxx.compute-1.amazonaws.com:/mnt/kallisto/results ~/Downloads/sleuth/
 
 
+**SETUP EXPERIMENT DETAILS**
+
+::
+
+  nano ~/Downloads/kallisto
+
+  #paste in this stuff
+
+  name reads condition wt
+  HYB_sdE3_rep1 1471455 HYB no
+  HYB_sdE3_rep2 2645196 HYB no
+  HYB_wt_rep1 2309621 HYB yes
+  HYB_wt_rep2 2060634 HYB yes
+  SAM_sdE3_rep1 3181035 SAM no
+  SAM_sdE3_rep2 2209716 SAM no
+  SAM_wt_rep1 1992638 SAM yes
+  SAM_wt_rep2 1989071 SAM yes
+  ORE_sdE3_rep1 2627739 ORE no
+  ORE_sdE3_rep2 2418833 ORE no
+  ORE_wt_rep1 2250607 ORE yes
+  ORE_wt_rep2 3313590 ORE yes
+
 **LAUNCH SLEUTH**
 
 ::
