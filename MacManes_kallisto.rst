@@ -141,6 +141,7 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** We need 
   #to Launch into RStudio
   source("http://bioconductor.org/biocLite.R")
   biocLite("rhdf5")
+  biocLite("biomaRt")
   install.packages('devtools')
   devtools::install_github('pachterlab/sleuth')
   library("sleuth")
