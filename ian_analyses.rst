@@ -32,6 +32,24 @@ Sleuth: https://liorpachter.wordpress.com/2015/08/17/a-sleuth-for-rna-seq/
   samples[11]=SAM_w_r2
   samples[12]=SAMf_OREm_w
  
+ #Trimming:
+ 
+ 
+  for i in 1 2 3 4 5 6 7 8 9 10 11 12
+  do
+      sample=${samples[${i}]}
+      java -Xmx10g -jar $HOME/Trimmomatic-0.33/trimmomatic-0.33.jar PE \
+      -threads 16 -baseout ${sample}.fq \
+      /mnt/reads/${sample}_*_R1_001.fastq.gz \
+      /mnt/reads/${sample}_*_R2_001.fastq.gz \
+      ILLUMINACLIP:$HOME/Trimmomatic-0.33/adapters/TruSeq3-PE.fa:2:30:10 \
+      SLIDINGWINDOW:4:10 \
+      LEADING:10 \
+      TRAILING:10 \
+      MINLEN:30
+  done
+
+ 
 
   for i in 1 2 3 4 5 6 7 8 9 10 11 12
   do
