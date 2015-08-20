@@ -106,20 +106,14 @@ Sleuth: https://liorpachter.wordpress.com/2015/08/17/a-sleuth-for-rna-seq/
   base_dir <- "~/Downloads/sleuth"
   sample_id <- dir(file.path(base_dir,"results"))
   kal_dirs <- sapply(sample_id, function(id) file.path(base_dir, "results", id, "kallisto"))
-  s2c <- read.table(file.path(base_dir,"experiment.info"), header = TRUE,   stringsAsFactors=FALSE)
-  s2c <- dplyr::select(s2c, sample = name, condition, wt)
-  so <- sleuth_prep(kal_dirs, s2c, ~ wt)
-  so <- sleuth_fit(so)
-  so <- sleuth_test(so, which_beta = 'wtyes')
-
+  s2c <- read.table(file.path(base_dir,"experiment2.info"), header = TRUE,   stringsAsFactors=FALSE)
+  s2c <- dplyr::select(s2c, sample = name, condition)
   mart <- biomaRt::useMart(biomart = "ensembl", dataset = "dmelanogaster_gene_ensembl")
   t2g <- biomaRt::getBM(attributes = c("ensembl_transcript_id", "ensembl_gene_id",
-    "external_gene_name"), mart = mart)
+      "external_gene_name"), mart = mart)
   t2g <- dplyr::rename(t2g, target_id = ensembl_transcript_id,
-     ens_gene = ensembl_gene_id, ext_gene = external_gene_name)
-  so <- sleuth_prep(kal_dirs, s2c, ~ wt, target_mapping = t2g)
+      ens_gene = ensembl_gene_id, ext_gene = external_gene_name)
+  so <- sleuth_prep(kal_dirs, s2c, ~ condition, target_mapping = t2g)
   so <- sleuth_fit(so)
-  so <- sleuth_test(so, which_beta = 'wtyes')
+  so <- sleuth_test(so, which_beta = 'conditionyes')
   sleuth_live(so)
-
- test
