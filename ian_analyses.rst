@@ -57,8 +57,8 @@ Sleuth: https://liorpachter.wordpress.com/2015/08/17/a-sleuth-for-rna-seq/
       mkdir -p results/${sample}/kallisto
       kallisto quant -i dros --threads=16 --bootstrap-samples=100 \
       --output-dir=results/${sample}/kallisto \
-      /mnt/trimming/${sample}.1P.fq \
-      /mnt/trimming/${sample}.2P.fq
+      /mnt/trimming/${sample}_1P.fq \
+      /mnt/trimming/${sample}_2P.fq
   done
 
 **Download data from EC2 to laptop**: Make directory on your laptop.. ``mkdir ~/Downloads/sleuth/`` for the MAC people. 
