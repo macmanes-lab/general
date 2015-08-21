@@ -21,12 +21,12 @@ Sleuth: https://liorpachter.wordpress.com/2015/08/17/a-sleuth-for-rna-seq/
 
   samples[1]=ORE_w_r1
   samples[2]=ORE_w_r2
-  samples[3]=SAMf_OREm_sd1
-  samples[4]=SAM_sd1_r2
-  samples[5]=SAM_sd1_r1
-  samples[6]=OREf_SAMm_sd1
-  samples[7]=ORE_sd1_r2
-  samples[8]=ORE_sd1_r1
+  samples[3]=ORE_sdE3_r1
+  samples[4]=ORE_sdE3_r2
+  samples[5]=OREf_SAMm_sdE3
+  samples[6]=SAM_sdE3_r1
+  samples[7]=SAM_sdE3_r2
+  samples[8]=SAMf_OREm_sdE3
   samples[9]=OREf_SAMm_w
   samples[10]=SAM_w_r1
   samples[11]=SAM_w_r2
