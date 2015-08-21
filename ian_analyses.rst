@@ -76,19 +76,19 @@ Sleuth: https://liorpachter.wordpress.com/2015/08/17/a-sleuth-for-rna-seq/
 
   #paste in this stuff
 
-  name condition wt
-  OREf_SAMm_w ORE yes
-  SAM_w_r1 SAM yes
-  SAM_w_r2 SAM yes
-  SAMf_OREm_w SAM yes
-  ORE_w_r1 ORE yes
-  ORE_w_r2 ORE yes
-  SAMf_OREm_sd1 SAM no
-  SAM_sd1_r2 SAM no
-  SAM_sd1_r1 SAM no
-  OREf_SAMm_sd1 ORE no
-  ORE_sd1_r2 ORE no
-  ORE_sd1_r1 ORE no
+  name condition type
+  ORE_w_r1 wt ORE
+  ORE_w_r2 wt ORE
+  ORE_sdE3_r1 mut ORE
+  ORE_sdE3_r2 mut ORE
+  OREf_SAMm_sdE3 mut ORE
+  SAM_sdE3_r1 mut SAM
+  SAM_sdE3_r2 mut SAM
+  SAMf_OREm_sdE3 mut SAM
+  OREf_SAMm_w wt ORE
+  SAM_w_r1 wt SAM
+  SAM_w_r2 wt SAM
+  SAMf_OREm_w wt SAM
 
 **LAUNCH SLEUTH**
 
@@ -103,17 +103,17 @@ Sleuth: https://liorpachter.wordpress.com/2015/08/17/a-sleuth-for-rna-seq/
 
   #Change project dir in R
 
-  base_dir <- "~/Downloads/sleuth"
-  sample_id <- dir(file.path(base_dir,"results"))
-  kal_dirs <- sapply(sample_id, function(id) file.path(base_dir, "results", id, "kallisto"))
-  s2c <- read.table(file.path(base_dir,"experiment2.info"), header = TRUE,   stringsAsFactors=FALSE)
-  s2c <- dplyr::select(s2c, sample = name, condition)
-  mart <- biomaRt::useMart(biomart = "ensembl", dataset = "dmelanogaster_gene_ensembl")
-  t2g <- biomaRt::getBM(attributes = c("ensembl_transcript_id", "ensembl_gene_id",
-      "external_gene_name"), mart = mart)
-  t2g <- dplyr::rename(t2g, target_id = ensembl_transcript_id,
-      ens_gene = ensembl_gene_id, ext_gene = external_gene_name)
-  so <- sleuth_prep(kal_dirs, s2c, ~ condition, target_mapping = t2g)
-  so <- sleuth_fit(so)
-  so <- sleuth_test(so, which_beta = 'conditionyes')
-  sleuth_live(so)
+    base_dir <- "~/Downloads/sleuth"
+    sample_id <- dir(file.path(base_dir,"results4"))
+    kal_dirs <- sapply(sample_id, function(id) file.path(base_dir, "results4", id, "kallisto"))
+    s2c <- read.table(file.path(base_dir,"experiment3.info"), header = TRUE,   stringsAsFactors=FALSE)
+    s2c <- dplyr::select(s2c, sample = name, condition, type)
+    mart <- biomaRt::useMart(biomart = "ensembl", dataset = "dmelanogaster_gene_ensembl")
+    t2g <- biomaRt::getBM(attributes = c("ensembl_transcript_id", "ensembl_gene_id",
+        "external_gene_name"), mart = mart)
+    t2g <- dplyr::rename(t2g, target_id = ensembl_transcript_id,
+        ens_gene = ensembl_gene_id, ext_gene = external_gene_name)
+    so <- sleuth_prep(kal_dirs, s2c, ~ condition, target_mapping = t2g)
+    so <- sleuth_fit(so)
+    so <- sleuth_test(so, which_beta = 'conditionwt')
+    sleuth_live(so)
