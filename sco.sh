@@ -31,5 +31,5 @@ LIMIT=$(expr $NSPECIES + 2)
 rm SCOs.txt 2> /dev/null
 
 for i in $(eval echo "{$START..$END}") ; do
-    sed -n ''$i'p' $input | awk '!$var' var="$LIMIT" | awk '!array[$0]++'  | tr -s ' ' \\n | awk '{print substr($0,0,12)}' tr="$TRUNC" | sort -u | if [ $(wc -l | awk '{print $1}') -ge "$min" ]; then sed -n ''$i'p' $input >> SCOs.txt; fi ;
+    sed -n ''$i'p' $input | awk '!$var' var="$LIMIT" | awk '!array[$0]++'  | tr -s ' ' \\n | awk '{print substr($0,0,12)}' tr="$TRUNC" | sort -u | if [ $(wc -l | awk '{print $1}') -eq "$NSPECIES" ]; then sed -n ''$i'p' $input >> SCOs1.txt; fi ;
 done
