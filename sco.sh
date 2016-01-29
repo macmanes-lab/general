@@ -24,12 +24,16 @@ TRUNC=12
 min=$(expr $NSPECIES / 2 + 2)
 equal=$(expr $NSPECIES + 1)
 input=OrthologousGroups.txt
-START=1
 END=$(wc -l $input | awk '{print $1}')
+START=1
 LIMIT=$(expr $NSPECIES + 2)
 
 rm SCOs.txt 2> /dev/null
 
 for i in $(eval echo "{$START..$END}") ; do
-    sed -n ''$i'p' $input | awk '!$var' var="$LIMIT" | awk '!array[$0]++'  | tr -s ' ' \\n | awk '{print substr($0,0,12)}' tr="$TRUNC" | sort -u | if [ $(wc -l | awk '{print $1}') -eq "$NSPECIES" ]; then sed -n ''$i'p' $input >> SCOs1.txt; fi ;
+    sed -n ''$i'p' $input | awk '!$var' var="$LIMIT" | awk '!array[$0]++'  | tr -s ' ' \\n | awk '{print substr($0,0,tr)}' tr="$TRUNC" | sort -u | wc -l > 1.txt;
+    sed -n ''$i'p' $input | awk '!$var' var="$LIMIT" | awk '!array[$0]++'  | tr -s ' ' \\n | awk '{print substr($0,0,tr)}' tr="$TRUNC" | wc -l > 2.txt;
+    if [ $(cat 1.txt) -eq $(cat 2.txt) ] && [ $(cat 1.txt) -gt "$min" ]; then sed -n ''$i'p' $input >> SCOs.txt; fi ;
 done
+
+rm 1.txt 2.txt 
