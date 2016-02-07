@@ -4,12 +4,11 @@ usage=$(cat << EOF
    # This script runs a pipeline that takes a fasta file and BAMfiles and tests for selection:
    #
 
-   autopaml.sh [options]
+   autoPAML.sh [options]
    Options:
       -t <v> : *required* Numberof threads to use.
 EOF
 );
-
 
 while getopts f:b:o:t: option
 do
@@ -19,12 +18,9 @@ do
         esac
 done
 
-
-
 ##Align
 END=$(ls | wc -l | awk '{print $1}')
 START=1
-
 
 for inputaln in $(ls *fasta); do
     F=`basename $inputaln .fasta`;
