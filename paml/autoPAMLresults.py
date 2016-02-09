@@ -9,11 +9,13 @@ import time
 from math import sqrt
 from rpy2 import robjects
 
+r = robjects.r
+
 def compare_models(m1_lnl, m2_lnl, df):
     likelihood = 2*(abs(m2_lnl-m1_lnl))
     p = 1 - robjects.r.pchisq(likelihood, df)[0]
-    pa = robjects.r.p.adjust(p, "BH", 7000)
-    return pa
+    return p
+
 
 results = codeml.read(sys.argv[1])
 nssites = results.get("NSsites")
@@ -31,5 +33,12 @@ m8_lnl = m8.get("lnL")
 m2_p_pos = compare_models(m1_lnl,m2_lnl,2)
 m8_p_pos = compare_models(m7_lnl,m8_lnl,2)
 
-print 'M1vM2_pajust-value {} {}'.format(sys.argv[1], m2_p_pos)
-print 'M7vM8_pajust-value {} {}'.format(sys.argv[1], m8_p_pos)
+r.assign('m2_p_pos', m2_p_pos)
+r.assign('m8_p_pos', m8_p_pos)
+
+paM2 = robjects.r('p.adjust(m2_p_pos, "BH", 7000)')
+paM8 = robjects.r('p.adjust(m8_p_pos, "BH", 7000)')
+
+
+print 'M1vM2_pajust-value {} {}'.format(sys.argv[1], paM2[0])
+print 'M7vM8_pajust-value {} {}'.format(sys.argv[1], paM8[0])
