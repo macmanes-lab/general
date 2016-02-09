@@ -10,6 +10,7 @@ from math import sqrt
 from rpy2 import robjects
 
 r = robjects.r
+len = len(glob.glob1(".","*.out"))
 
 def compare_models(m1_lnl, m2_lnl, df):
     likelihood = 2*(abs(m2_lnl-m1_lnl))
@@ -35,10 +36,13 @@ m8_p_pos = compare_models(m7_lnl,m8_lnl,2)
 
 r.assign('m2_p_pos', m2_p_pos)
 r.assign('m8_p_pos', m8_p_pos)
+r.assign('len', len)
 
-paM2 = robjects.r('p.adjust(m2_p_pos, "BH", 7000)')
-paM8 = robjects.r('p.adjust(m8_p_pos, "BH", 7000)')
+
+paM2 = robjects.r('p.adjust(m2_p_pos, "BH", len)')
+paM8 = robjects.r('p.adjust(m8_p_pos, "BH", len)')
 
 
 print 'M1vM2_pajust-value {} {}'.format(sys.argv[1], paM2[0])
 print 'M7vM8_pajust-value {} {}'.format(sys.argv[1], paM8[0])
+
