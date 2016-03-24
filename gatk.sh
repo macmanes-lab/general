@@ -15,7 +15,7 @@
 
 # sudo apt-get update
 # sudo apt-get upgrade
-# sudo apt-get -y install bwa hmmer cmake tmux git curl bowtie libncurses5-dev samtools gcc make ncbi-blast+ g++ python-dev libboost-iostreams-dev libboost-system-dev libboost-filesystem-dev unzip
+# sudo apt-get -y install hmmer cmake tmux git curl bowtie libncurses5-dev samtools gcc make ncbi-blast+ g++ python-dev libboost-iostreams-dev libboost-system-dev libboost-filesystem-dev unzip
 # sudo add-apt-repository ppa:webupd8team/java
 # sudo apt-get update
 # sudo apt-get install oracle-java8-installer
