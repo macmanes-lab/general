@@ -27,7 +27,7 @@ busco.done:${ASSEMBLY}
         python3 ${BUSCODIR}BUSCO_v1.1b1.py -in ${ASSEMBLY} -m trans --cpu $(CPU) -l ${BUSCODIR}${LINEAGE} -o ${BUSCOUT} 2> /dev/null
         touch busco.done
 
-transrate.done:${ASSEMBLY} ${READ1} ${READ2}
+transrate.done:${ASSEMBLY}
         transrate -o transrate_${basename ${ASSEMBLY} .fasta}  -a ${ASSEMBLY} --left ${READ1} --right ${READ2} -t $(CPU)
         touch transrate.done
 
