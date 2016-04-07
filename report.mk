@@ -24,19 +24,19 @@ transrate:transrate.done
 .PHONY:report
 
 busco.done:${ASSEMBLY}
-        python3 ${BUSCODIR}BUSCO_v1.1b1.py -in ${ASSEMBLY} -m trans --cpu $(CPU) -l ${BUSCODIR}${LINEAGE} -o ${BUSCOUT} 2> /dev/null
-        touch busco.done
+	python3 ${BUSCODIR}BUSCO_v1.1b1.py -in ${ASSEMBLY} -m trans --cpu $(CPU) -l ${BUSCODIR}${LINEAGE} -o ${BUSCOUT} 2> /dev/null
+	touch busco.done
 
 transrate.done:${ASSEMBLY}
-        transrate -o transrate_${basename ${ASSEMBLY} .fasta}  -a ${ASSEMBLY} --left ${READ1} --right ${READ2} -t $(CPU)
-        touch transrate.done
+	transrate -o transrate_${basename ${ASSEMBLY} .fasta}  -a ${ASSEMBLY} --left ${READ1} --right ${READ2} -t $(CPU)
+	touch transrate.done
 
 report:
-        printf "\n\n*****  QUALITY REPORT FOR: ${ASSEMBLY} **** \n\n"
-        printf "*****  BUSCO SCORE ~~~~~>           " | tee qualreport.${basename ${ASSEMBLY} .fasta}
-        cat $$(find run_${BUSCOUT} -name short*) | sed -n 5p  | tee -a qualreport.${basename ${ASSEMBLY} .fasta}
-        printf "*****  TRANSRATE SCORE ~~~~~>           " | tee -a qualreport.${basename ${ASSEMBLY} .fasta}
-        cat $$(find transrate_${basename ${ASSEMBLY} .fasta} -name assemblies.csv) | awk -F , '{print $$41}' | sed -n 2p | tee -a qualreport.${basename ${ASSEMBLY} .fasta}
-        printf "*****  TRANSRATE OPTIMAL SCORE ~~~~~>   " | tee -a qualreport.${basename ${ASSEMBLY} .fasta}
-        cat $$(find transrate_${basename ${ASSEMBLY} .fasta} -name assemblies.csv) | awk -F , '{print $$42}' | sed -n 2p | tee -a qualreport.${basename ${ASSEMBLY} .fasta}
-        printf " \n\n"
+	printf "\n\n*****  QUALITY REPORT FOR: ${ASSEMBLY} **** \n\n"
+	printf "*****  BUSCO SCORE ~~~~~>           " | tee qualreport.${basename ${ASSEMBLY} .fasta}
+	cat $$(find run_${BUSCOUT} -name short*) | sed -n 5p  | tee -a qualreport.${basename ${ASSEMBLY} .fasta}
+	printf "*****  TRANSRATE SCORE ~~~~~>           " | tee -a qualreport.${basename ${ASSEMBLY} .fasta}
+	cat $$(find transrate_${basename ${ASSEMBLY} .fasta} -name assemblies.csv) | awk -F , '{print $$41}' | sed -n 2p | tee -a qualreport.${basename ${ASSEMBLY} .fasta}
+	printf "*****  TRANSRATE OPTIMAL SCORE ~~~~~>   " | tee -a qualreport.${basename ${ASSEMBLY} .fasta}
+	cat $$(find transrate_${basename ${ASSEMBLY} .fasta} -name assemblies.csv) | awk -F , '{print $$42}' | sed -n 2p | tee -a qualreport.${basename ${ASSEMBLY} .fasta}
+	printf " \n\n"
