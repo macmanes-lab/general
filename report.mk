@@ -24,7 +24,7 @@ transrate:transrate.done
 .PHONY:report
 
 busco.done:${ASSEMBLY}
-        python3 ${BUSCODIR}BUSCO_v1.1b1.py -g ${ASSEMBLY} -m Trans --cpu $(CPU) -l ${BUSCODIR}${LINEAGE} -o ${BUSCOUT} 2> /dev/null
+        python3 ${BUSCODIR}BUSCO_v1.1b1.py -in ${ASSEMBLY} -m trans --cpu $(CPU) -l ${BUSCODIR}${LINEAGE} -o ${BUSCOUT} 2> /dev/null
         touch busco.done
 
 transrate.done:${ASSEMBLY} ${READ1} ${READ2}
