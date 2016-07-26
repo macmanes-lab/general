@@ -1,16 +1,20 @@
-#!/usr/bin/python
+#!usr/bin/env python
 
+import sys 
 
-#this script makes a png file of the distribution of contig length
+file_open = open(sys.argv[1],'r').readlines() 
+file_out = open(sys.argv[2],'w') 
 
-
-
-from Bio import SeqIO
-import csv
-import sys
-import os
-
-sizes = [len(rec) for rec in SeqIO.parse(sys.argv[1], "fasta")]  #get sizes
-
-out = csv.writer(open(sys.argv[2],"w"), delimiter='\n')
-out.writerow(sizes) #send sizes to csv
+switch = 0 
+for lines in file_open:
+    if '>' in lines:
+        if switch == 0:
+            file_out.write(lines.strip() + "\t")
+            seq_length = 0
+            switch = 1
+        elif switch == 1:
+            file_out.write(str(seq_length) + "\n" + lines.strip() + "\t")
+            seq_length = 0
+    else:
+        seq_length+=len(lines.strip())
+file_out.write(str(seq_length))
