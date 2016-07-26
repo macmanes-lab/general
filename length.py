@@ -7,6 +7,8 @@
 
 from Bio import SeqIO
 import csv
+import sys
+import os
 
 sizes = [len(rec) for rec in SeqIO.parse(sys.argv[1], "fasta")]  #get sizes
 
