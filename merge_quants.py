@@ -13,7 +13,7 @@ listofsamples = os.listdir(sys.argv[1])
 quants = {}
 data = None
 for sample in listofsamples:
-    if os.path.isdir(sys.argv[1]+sample):
+    if os.path.isdir(sys.argv[1]+sample);
         if os.path.isfile(sys.argv[1]+sample+"/quant.sf"):
             quant_file = sys.argv[1]+sample+"/quant.sf"
             data=pd.DataFrame.from_csv(quant_file,sep='\t')
